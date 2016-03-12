@@ -2,5 +2,5 @@
 for something
 
 ## buildllvm.sh
-usage: ./builllvm.sh <version>
+usage: ./builllvm.sh version
 
