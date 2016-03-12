@@ -13,6 +13,8 @@ do
     mv ${item}-$1${s} ${item};
 done
 
+rm ./*.tar.xz
+
 mv clang-tool-extra extra
 mv cfe clang
 mv extra clang/tools/;
