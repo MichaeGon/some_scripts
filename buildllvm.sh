@@ -6,7 +6,7 @@ stx=${s}${tx}
 tool_dir=llvm/tools/
 projects_dir=llvm/projects/
 
-for item in llvm cfe compiler-rt libcxx libcxxabi openmp clang-tool-extra
+for item in llvm cfe compiler-rt libcxx libcxxabi openmp clang-tools-extra
 do
     wget ${page_prefix}$1/${item}-$1${stx};
     tar Jxvf ${item}-$1${stx};
@@ -15,7 +15,7 @@ done
 
 rm ./*${tx};
 
-mv clang-tool-extra extra
+mv clang-tools-extra extra
 mv cfe clang
 mv extra clang/tools/;
 mv clang ${tool_dir};
