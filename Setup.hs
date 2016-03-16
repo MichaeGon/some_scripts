@@ -16,22 +16,27 @@ myBuildHook desc _ _ _ = do
     ldflags <- readProcess "llvm-config" ["--libdir", "--system-libs", "--libs", "core", "mcjit", "native"] []
     let exec1 = head . executables $ desc
         cfiles = cSources . buildInfo $ exec1
-        f = (:) <$> modulePath <*> (map ((++ ".hs") . toFilePath) . otherModules . buildInfo)
+        f = map toFilePath . otherModules . buildInfo
         hsfiles = f exec1
         ldfacc = foldr (\x acc -> "-l" ++ x ++ " " ++ acc) ("-L" ++ (unwords . lines) ldflags) (extraLibs . buildInfo $ exec1)
         buildpath = "./dist/build/" ++ exeName exec1
         tmppath = buildpath ++ "/" ++ exeName exec1 ++ "-tmp"
+        cvt = foldr g ""
+        g x acc
+            | x == '/' = '_' : acc
+            | otherwise = x : acc
     createDirectoryIfMissing True tmppath
     putStrLn "compiling c files..."
     forM_ cfiles $ \x -> do
-        let cmd = "clang++ -c ./" ++ x ++ " -o " ++ tmppath ++ "/" ++ x ++ ".o " ++ cxxflags
+        let cmd = "clang++ -c ./" ++ x ++ " -o " ++ tmppath ++ "/" ++ cvt x ++ ".o " ++ cxxflags
         putStrLn cmd
         callCommand cmd
-    putStrLn "compiling haskell files..."
-    forM_ hsfiles $ \x -> do
-        let cmd = "ghc -c ./" ++ x ++ " -o " ++ tmppath ++ "/" ++ x ++ ".o"
-        putStrLn cmd
-        callCommand cmd
+    putStrLn "compiling and linking haskell files..."
+    {-
+    let hscmd = "ghc -c -O --make ./" ++ modulePath exec1 ++ " -odir " ++ tmppath
+    putStrLn hscmd
+    callCommand hscmd
     putStrLn "linking..."
-    callCommand $ "ghc -o " ++ buildpath ++ "/" ++ exeName exec1 ++ " " ++ foldr (\x acc -> "./dist/build/" ++ exeName exec1 ++ "/" ++ exeName exec1 ++ "-tmp/" ++ x ++ ".o " ++ acc) ldfacc (hsfiles ++ cfiles)
+    -}
+    callCommand $ "ghc -o --make " ++ buildpath ++ "/" ++ exeName exec1 ++ " Main.hs " ++ foldr (\x acc -> tmppath ++ "/"  ++ cvt x ++ ".o " ++ acc) ldfacc cfiles
     putStrLn "done"
