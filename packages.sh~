@@ -14,4 +14,3 @@ apm install language-rust linter-rust racer;
 apm install latex pdf-view language-latex latexer linter-chktex;
 # fsharp
 apm install language-fsharp;
-# java
