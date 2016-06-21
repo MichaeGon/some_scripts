@@ -15,3 +15,6 @@ apm install latex pdf-view language-latex latexer linter-chktex;
 # fsharp
 apm install language-fsharp;
 # java
+apm install autocomplete-java linter-javac
+# scala
+apm install language-scala linter-scalac
