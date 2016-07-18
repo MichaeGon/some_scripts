@@ -16,10 +16,11 @@ sudo -k
 
 echo ${password} | sudo -S sh <<SCRIPT
 
-# atom
-add-apt-repository ppa:webupd8team/atom
-# java
-add-apt-repository ppa:webupd8team/java
+for item in atom java
+do
+    add-apt-repository ppa:webupd8team/${item}
+done
+
 # stack
 apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 575159689BEFB442
 echo "deb http://download.fpcomplete.com/ubuntu ${codename} main" | \
@@ -27,31 +28,10 @@ tee /etc/apt/sources.list.d/fpco.list
 
 apt-get update
 
-# git
-apt-get install git -y
-apt-get install git-flow -y
-
-# gcc
-apt-get install gcc g++ -y
-
-# python
-apt-get install python -y
-
-# cmake
-apt-get install cmake -y
-
-# zlib
-apt-get install zlib1g-dev -y
-
-# vim
-apt-get install vim -y
-
-# scala
-apt-get install scala -y
-
-apt-get install stack -y
-apt-get oracle-java8-installer -y
-apt-get atom -y
+for item in git git-flow gcc g++ python cmake zlib1g-dev vim scala stack oracle-java8-installer atom
+do
+    apt-get install ${item} -y
+done
 
 SCRIPT
 
@@ -117,9 +97,10 @@ stack install ghc-mod hlint stylish-haskell hoogle pointfree pointful
 echo "export RUST_SRC_PATH=${rustsrc}/src" >> ${brc}
 echo 'export PATH=/usr/local/llvm/bin:$PATH' >> ${brc}
 echo 'export PATH=$HOME/.local/bin:$PATH' >> ${brc}
-echo "alias ghc='stack ghc --'" >> ${brc}
-echo "alias ghci='stack ghci --'" >> ${brc}
-echo "alias runghc='stack runghc --'" >> ${brc}
+for item in ghc ghci runghc
+do
+    echo "alias ${item}='stack ${item} --'" >> ${brc}
+done
 echo 'eval "$(stack --bash-completion-script stack)"' >> ${brc}
 source ${brc}
 
