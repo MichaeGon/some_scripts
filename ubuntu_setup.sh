@@ -63,9 +63,38 @@ sudo -k
 # llvm
 mkdir -p ${llvmdir}
 cd ${llvmdir}
-wget ${giturl}/${bl}
-chmod 755 ${bl}
-./${bl} ${1}
+
+page_prefix=http://llvm.org/releases/
+tx=.tar.xz
+s=.src
+stx=${s}${tx}
+tool_dir=llvm/tools/
+projects_dir=llvm/projects/
+
+for item in llvm cfe compiler-rt libcxx libcxxabi openmp clang-tools-extra
+do
+    wget ${page_prefix}${1}/${item}-${1}${stx}
+    tar Jxvf ${item}-${1}${stx}
+    mv ${item}-${1}${s} ${item}
+done
+
+rm ./*${tx}
+
+mv clang-tools-extra extra
+mv cfe clang
+mv extra clang/tools/
+mv clang ${tool_dir}
+
+for item in libcxx libcxxabi compiler-rt openmp
+do
+    mv ${item} ${projects_dir}
+done
+
+mkdir build
+cd build
+cmake -G "Unix Makefiles" -DCMAKE_INSTALL_PREFIX=/usr/local/llvm/ ../llvm/
+make -j4
+
 cd ${llvmdir}/build
 echo ${password} | sudo -S make install
 
@@ -88,6 +117,17 @@ echo 'eval "$(stack --bash-completion-script stack)"' >> ${brc}
 source ${brc}
 
 # apm
-wget ${giturl}/${pk}
-chmod 755 ${pk}
-./${pk}
+# something
+apm install minimap file-icons highlight-column highlight-line color-picker pigments
+# git
+apm install git-history git-control merge-conflicts git-plus git-log tualo-git-context
+# haskell
+apm install ide-haskell haskell-ghc-mod ide-haskell-cabal autocomplete-haskell language-haskell haskell-pointfree linter-hlint
+# clang
+apm install linter-clang autocomplete-clang
+# rust
+apm install language-rust linter-rust racer
+# java
+apm install autocomplete-java linter-javac
+# scala
+apm install language-scala linter-scalac
