@@ -1,18 +1,23 @@
 #!/bin/sh
 
-sudo -k
+if [ $# -lt 1 ] ; then
+    echo "usage: ./ubuntu_setup.sh <llvm version>"
+    exit 1
+fi
 
-printf "llvm version:"
-read llvmver
+printf "password:"
+read password
 
 codename=`lsb_release -a | grep Codename | awk '{print $2}'`
-llvmdir=${HOME}/llvm/build/${llvmver}
+llvmdir=${HOME}/llvm/build/${1}
 giturl=https://raw.githubusercontent.com/MichaeGon/some_scripts/master
 bl=buildllvm.sh
 pk=packages.sh
 brc=${HOME}/.bashrc
 
-sudo sh <<SCRIPT
+sudo -k
+
+echo ${password} | sudo -S sh <<SCRIPT
 
 # atom
 add-apt-repository ppa:webupd8team/atom
@@ -29,16 +34,18 @@ apt-get install stack cmake zlib1g-dev oracle-java8-installer atom -y
 # git
 apt-get install git git-flow -y
 
+SCRIPT
+
+sudo -k
+
 # llvm
 mkdir -p ${llvmdir}
 cd ${llvmdir}
 wget ${giturl}/${bl}
 chmod 755 ${bl}
-./${bl} ${llvmver}
+./${bl} ${1}
 cd ${llvmdir}/build
-make install
-
-SCRIPT
+echo ${password} | sudo -S make install
 
 # rust
 curl -sSf https://static.rust-lang.org/rustup.sh | sh
