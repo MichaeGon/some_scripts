@@ -37,28 +37,27 @@ chmod 755 ${bl}
 ./${bl} ${llvmver}
 cd ${llvmdir}/build
 make install
-echo 'export PATH=/usr/local/llvm/bin:$PATH' >> ${brc}
-source ${brc}
+
+SCRIPT
 
 # rust
 curl -sSf https://static.rust-lang.org/rustup.sh | sh
-
-# apm
-cd ${HOME}
-wget ${giturl}/${pk}
-chmod 755 ${pk}
-./${pk}
 
 # stack
 cd ${HOME}
 stack setup
 stack install ghc-mod hlint stylish-haskell hoogle pointfree pointful
+
+# .bashrc
+echo 'export PATH=/usr/local/llvm/bin:$PATH' >> ${brc}
 echo 'export PATH=$HOME/.local/bin:$PATH' >> ${brc}
 echo "alias ghc='stack ghc --'" >> ${brc}
 echo "alias ghci='stack ghci --'" >> ${brc}
 echo "alias runghc='stack runghc --'" >> ${brc}
 echo 'eval "$(stack --bash-completion-script stack)"' >> ${brc}
-
 source ${brc}
 
-SCRIPT
+# apm
+wget ${giturl}/${pk}
+chmod 755 ${pk}
+./${pk}
