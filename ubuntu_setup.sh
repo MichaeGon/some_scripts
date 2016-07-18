@@ -101,6 +101,17 @@ echo ${password} | sudo -S make install
 # rust
 curl -sSf https://static.rust-lang.org/rustup.sh | sh
 cargo install racer
+rustsrc=${HOME}/rust
+mkdir -p ${rustsrc}
+cd ${rustsrc}
+wget https://www.rust-lang.org/en-US/
+cat index.html | \
+grep https://static.rust-lang.org/dist/rustc | \
+awk -F \" '{print $2}' | \
+wget
+tar zxvf *.gz
+rm *.gz
+mv rustc* src
 
 # stack
 cd ${HOME}
@@ -108,6 +119,7 @@ stack setup
 stack install ghc-mod hlint stylish-haskell hoogle pointfree pointful
 
 # .bashrc
+echo "export RUST_SRC_PATH=${rustsrc}/src" >> ${brc}
 echo 'export PATH=/usr/local/llvm/bin:$PATH' >> ${brc}
 echo 'export PATH=$HOME/.local/bin:$PATH' >> ${brc}
 echo "alias ghc='stack ghc --'" >> ${brc}
