@@ -29,10 +29,32 @@ echo "deb http://download.fpcomplete.com/ubuntu ${codename} main" | \
 tee /etc/apt/sources.list.d/fpco.list
 
 apt-get update
-apt-get install stack cmake zlib1g-dev oracle-java8-installer atom -y
 
 # git
-apt-get install git git-flow -y
+apt-get install git -y
+apt-get install git-flow -y
+
+# gcc
+apt-get install gcc g++ -y
+
+# python
+apt-get install python -y
+
+# cmake
+apt-get install cmake -y
+
+# zlib
+apt-get install zlib1g-dev -y
+
+# vim
+apt-get install vim -y
+
+# scala
+apt-get install scala -y
+
+apt-get install stack -y
+apt-get oracle-java8-installer -y
+apt-get atom -y
 
 SCRIPT
 
@@ -49,6 +71,7 @@ echo ${password} | sudo -S make install
 
 # rust
 curl -sSf https://static.rust-lang.org/rustup.sh | sh
+cargo install racer
 
 # stack
 cd ${HOME}
