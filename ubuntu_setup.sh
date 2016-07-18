@@ -10,9 +10,6 @@ read password
 
 codename=`lsb_release -a | grep Codename | awk '{print $2}'`
 llvmdir=${HOME}/llvm/build/${1}
-giturl=https://raw.githubusercontent.com/MichaeGon/some_scripts/master
-bl=buildllvm.sh
-pk=packages.sh
 brc=${HOME}/.bashrc
 
 sudo -k
@@ -105,10 +102,8 @@ rustsrc=${HOME}/rust
 mkdir -p ${rustsrc}
 cd ${rustsrc}
 wget https://www.rust-lang.org/en-US/
-cat index.html | \
-grep https://static.rust-lang.org/dist/rustc | \
-awk -F \" '{print $2}' | \
-wget
+cat index.html | grep https://static.rust-lang.org/dist/rustc | \
+awk -F \" '{print $2}' | wget
 tar zxvf *.gz
 rm *.gz
 mv rustc* src
