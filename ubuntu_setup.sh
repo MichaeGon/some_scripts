@@ -5,16 +5,15 @@ if [ $# -lt 1 ] ; then
     exit 1
 fi
 
-printf "password:"
-read password
-
 codename=`lsb_release -a | grep Codename | awk '{print $2}'`
 llvmdir=${HOME}/llvm/build/${1}
 brc=${HOME}/.bashrc
 
 sudo -k
 
-echo ${password} | sudo -S sh <<SCRIPT
+mkdir -p ${llvmdir}
+
+sudo sh <<SCRIPT
 
 for item in atom java
 do
@@ -33,12 +32,7 @@ do
     apt-get install ${item} -y
 done
 
-SCRIPT
-
-sudo -k
-
 # llvm
-mkdir -p ${llvmdir}
 cd ${llvmdir}
 
 page_prefix=http://llvm.org/releases/
@@ -73,7 +67,10 @@ cmake -G "Unix Makefiles" -DCMAKE_INSTALL_PREFIX=/usr/local/llvm/ ../llvm/
 make -j4
 
 cd ${llvmdir}/build
-echo ${password} | sudo -S make install
+make install
+
+SCRIPT
+
 
 # rust
 curl -sSf https://static.rust-lang.org/rustup.sh | sh
