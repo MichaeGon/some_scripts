@@ -20,3 +20,5 @@ apm install autocomplete-java linter-javac;
 apm install language-scala linter-scalac;
 # elm
 apm install language-elm linter-elm-make;
+# others
+apm intall language-x86-64-assembly;
