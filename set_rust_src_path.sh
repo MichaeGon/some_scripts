@@ -1,14 +1,7 @@
 #! /bin/sh
 
-if [ $# -lt 1 ] ; then
-    echo "no arguments"
-    exit 1
-fi
-
-if [ $# -gt 1 ] ; then
-    echo "too many arguments"
-    exit 1
-fi
+rustc_log=`rustc --version`
+rust_ver=`echo ${rustc_log##* }`
 
 rust_src_path=`echo $RUST_SRC_PATH`
 
@@ -21,7 +14,7 @@ page_prefix=https://static.rust-lang.org/dist/
 src_prefix=rustc-
 src_ext=-src.tar.gz
 
-src_dir=${src_prefix}${1}
+src_dir=${src_prefix}${rust_ver}
 src_path=${page_prefix}${src_dir}${src_ext}
 
 
