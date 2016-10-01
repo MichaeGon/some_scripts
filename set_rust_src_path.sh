@@ -1,8 +1,8 @@
 #! /bin/sh
 
 rustc_log=`rustc --version`
-rust_ver=`echo ${rustc_log##* }`
-
+rust_ver_suf=`echo ${rustc_log##rustc }`
+rust_ver=`echo ${rust_ver_suf%% *}`
 rust_src_path=`echo $RUST_SRC_PATH`
 
 if [ -z "${rust_src_path}" ] ; then
