@@ -22,6 +22,6 @@ apm install language-scala linter-scalac;
 apm install language-elm linter-elm-make;
 # erlang
 apm install language-erlang;
-# others
+# asm
 apm intall language-x86-64-assembly;
 
