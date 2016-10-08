@@ -1,23 +1,26 @@
 # some_scripts
 for something
 
-## Setup.hs
+### Setup.hs
 backup and example of Setup.hs
 
-## SomeModule.rs
+### SomeModule.rs
 fn getline() -> String;
 
-## apm_installs.sh
+### apm_installs.sh
 packages of Atom
 
-## boot
+### boot
 for Unix V6
 
-## build_cmake.sh
+### build_cmake.sh
 build cmake from src
 
-## build_llvm.sh
+### build_llvm.sh
 download sources and build llvm
 
-## set_rust_src_path.sh
+### cd_history.sh
+jump with peco and z
+
+### set_rust_src_path.sh
 download rust-src for Racer

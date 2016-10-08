@@ -3,7 +3,7 @@
 cat << 'EOF' >> ${HOME}/.zshrc
 
 # peco and z
-# cd completion
+# select destination dir
 source $HOME/.z.d/z.sh
 function peco-z-search {
     which peco z > /dev/null
