@@ -5,7 +5,10 @@ for something
 backup and example of Setup.hs
 
 ### SomeModule.rs
-fn getline() -> String;
+fn get_line() -> String;
+
+### add_jump_search.sh
+add peco-z-search to .zshrc
 
 ### apm_installs.sh
 packages of Atom
@@ -18,9 +21,6 @@ build cmake from src
 
 ### build_llvm.sh
 download sources and build llvm
-
-### cd_history.sh
-jump with peco and z
 
 ### set_rust_src_path.sh
 download rust-src for Racer
