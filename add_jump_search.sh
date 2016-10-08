@@ -29,7 +29,7 @@ function peco-z-search {
 }
 
 zle -N peco-z-search
-bindkey '^x' peco-z-search
+bindkey '^f' peco-z-search
 EOF
 
 source ${HOME}/.zshrc
