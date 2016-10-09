@@ -1,16 +1,18 @@
 #! /bin/sh
 
+# z
+git clone https://github.com/rupa/z ${HOME}/.z.d
+
 cat << 'EOF' >> ${HOME}/.zshrc
 
 # peco and z
 # select destination dir
 source $HOME/.z.d/z.sh
 function peco-z-search {
-    which peco z > /dev/null
+    which peco > /dev/null
     if [ $? -ne 0 ]; then
-        git clone https://github.com/rupa/z ${HOME}/.z.d
-        brew install peco
-        source ${HOME}/.zshrc
+        echo "not found peco"
+        exit(1)
     fi
 
     local tac
@@ -31,5 +33,3 @@ function peco-z-search {
 zle -N peco-z-search
 bindkey '^f' peco-z-search
 EOF
-
-source ${HOME}/.zshrc
