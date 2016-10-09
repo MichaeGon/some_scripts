@@ -12,7 +12,7 @@ function peco-z-search {
     which peco > /dev/null
     if [ $? -ne 0 ]; then
         echo "not found peco"
-        exit(1)
+        exit 1
     fi
 
     local tac
