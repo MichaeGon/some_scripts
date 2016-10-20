@@ -23,5 +23,4 @@ apm install language-elm linter-elm-make;
 # erlang
 apm install language-erlang;
 # asm
-apm intall language-x86-64-assembly;
-
+apm install language-x86-64-assembly;
