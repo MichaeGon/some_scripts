@@ -15,3 +15,6 @@ download sources and build llvm
 
 ### set_rust_src_path.sh
 download rust-src for Racer
+
+### emulate.sh
+qemu command
