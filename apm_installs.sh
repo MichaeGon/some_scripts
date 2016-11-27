@@ -11,7 +11,7 @@ apm install linter-clang autocomplete-clang;
 # rust
 apm install language-rust linter-rust racer;
 # latex
-apm install latex pdf-view language-latex latexer linter-chktex;
+apm install latex pdf-view language-latex latexer linter-chktex script;
 # fsharp
 apm install language-fsharp;
 # java
