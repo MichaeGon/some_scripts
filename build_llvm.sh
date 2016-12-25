@@ -38,5 +38,5 @@ done
 
 mkdir build
 cd build
-cmake -G "Unix Makefiles" -DCMAKE_INSTALL_PREFIX=/usr/local/llvm/ ../llvm/
+cmake -G "Unix Makefiles" -DCMAKE_INSTALL_PREFIX=/usr/local/llvm/ -DLLVM_EXPERIMENTAL_TARGETS_TO_BUILD=WebAssembly ../llvm/
 make -j4
