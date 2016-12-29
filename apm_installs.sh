@@ -26,3 +26,5 @@ apm install language-erlang;
 apm install language-x86-64-assembly;
 # lisp
 apm install language-lisp;
+# graphviz
+apm install language-dot;
