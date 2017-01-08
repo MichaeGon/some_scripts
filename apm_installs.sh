@@ -28,3 +28,5 @@ apm install language-x86-64-assembly;
 apm install language-lisp;
 # graphviz
 apm install language-dot;
+# llvm
+apm install language-llvm;
