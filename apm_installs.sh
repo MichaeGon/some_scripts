@@ -30,3 +30,5 @@ apm install language-lisp;
 apm install language-dot;
 # llvm
 apm install language-llvm;
+# elixir
+apm install language-elixir autocomplete-elixir linter-elixirc;
