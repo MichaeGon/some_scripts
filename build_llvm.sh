@@ -16,7 +16,7 @@ if [ $# -gt 1 ] ; then
     exit 1
 fi
 
-for item in llvm cfe compiler-rt libcxx libcxxabi lld lldb polly openmp clang-tools-extra
+for item in llvm cfe compiler-rt libcxx libcxxabi lld polly openmp clang-tools-extra
 do
     wget ${page_prefix}${1}/${item}-${1}${stx}
     tar Jxvf ${item}-${1}${stx}
@@ -29,7 +29,7 @@ mv clang-tools-extra extra
 mv cfe clang
 mv extra clang/tools/
 
-for item in clang lld lldb polly
+for item in clang lld polly
 do
     mv ${item} ${tool_dir}
 done
