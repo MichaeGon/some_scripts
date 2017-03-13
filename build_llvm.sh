@@ -16,8 +16,7 @@ if [ $# -gt 1 ] ; then
     exit 1
 fi
 
-
-for item in llvm cfe compiler-rt libcxx libcxxabi openmp clang-tools-extra
+for item in llvm cfe compiler-rt libcxx libcxxabi lld lldb polly openmp clang-tools-extra
 do
     wget ${page_prefix}${1}/${item}-${1}${stx}
     tar Jxvf ${item}-${1}${stx}
@@ -29,7 +28,11 @@ rm ./*${tx}
 mv clang-tools-extra extra
 mv cfe clang
 mv extra clang/tools/
-mv clang ${tool_dir}
+
+for item in clang lld lldb polly
+do
+    mv item ${tool_dir}
+done
 
 for item in libcxx libcxxabi compiler-rt openmp
 do
@@ -38,5 +41,5 @@ done
 
 mkdir build
 cd build
-cmake -G "Unix Makefiles" -DCMAKE_INSTALL_PREFIX=/usr/local/llvm/ -DLLVM_EXPERIMENTAL_TARGETS_TO_BUILD=WebAssembly ../llvm/
+cmake -G "Unix Makefiles" -DCMAKE_INSTALL_PREFIX=/usr/local/llvm/ ../llvm/
 make -j4
