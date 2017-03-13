@@ -31,7 +31,7 @@ mv extra clang/tools/
 
 for item in clang lld lldb polly
 do
-    mv item ${tool_dir}
+    mv ${item} ${tool_dir}
 done
 
 for item in libcxx libcxxabi compiler-rt openmp
