@@ -41,5 +41,5 @@ done
 
 mkdir build
 cd build
-cmake -G "Unix Makefiles" -DCMAKE_INSTALL_PREFIX=/usr/local/llvm/ ../llvm/
-make -j4
+cmake -G "Ninja" -DCMAKE_INSTALL_PREFIX=/usr/local/llvm/ ../llvm/
+ninja
