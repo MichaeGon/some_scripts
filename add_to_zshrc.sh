@@ -41,7 +41,7 @@ bindkey '^f' peco-z-search
 function peco-cmd-history {
     BUFFER=$(\history -n -r 1 | peco --query "$LBUFFER")
     CURSOR=$#BUFFER
-    zle clear-screen
+    zle reset-prompt
 }
 
 zle -N peco-cmd-history
@@ -61,7 +61,7 @@ function peco-git-checkout {
     fi
     BUFFER=${res}
     CURSOR=$#BUFFER
-    zle clear-screen
+    zle reset-prompt
 }
 zle -N peco-git-checkout
 bindkey '^g' peco-git-checkout
