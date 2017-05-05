@@ -1,5 +1,7 @@
 #! /bin/sh
 
+rustup update stable
+
 rustc_log=`rustc --version`
 rust_ver_suf=`echo ${rustc_log##rustc }`
 rust_ver=`echo ${rust_ver_suf%% *}`
