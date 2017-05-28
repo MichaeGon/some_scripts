@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # something
-apm install minimap file-icons highlight-column highlight-line color-picker pigments linter linter-ui-default intentions busy-signal;
+apm install minimap file-icons highlight-column highlight-line color-picker pigments linter linter-ui-default intentions busy-signal markdown-preview-enhanced;
 # git
 apm install git-history git-control merge-conflicts git-plus git-log tualo-git-context;
 # haskell
