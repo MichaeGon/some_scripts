@@ -1,0 +1,12 @@
+set number
+
+set expandtab
+set tabstop=2
+set shiftwidth=4
+
+set autoindent
+
+syntax on
+
+set cursorline
+set cursorcolumn
