@@ -3,7 +3,7 @@
 APM=apm-beta
 
 # something
-${APM} install markdown-preview-enhanced minimap file-icons highlight-column highlight-line color-picker pigments;
+${APM} install linter linter-ui-default intentions busy-signal minimap file-icons highlight-column highlight-line color-picker pigments;
 # git
 ${APM} install git-history git-control merge-conflicts git-plus git-log tualo-git-context;
 # haskell
@@ -13,11 +13,11 @@ ${APM} install linter-clang autocomplete-clang;
 # rust
 ${APM} install language-rust linter-rust racer;
 # latex
-${APM} install latex pdf-view language-latex latexer linter-chktex script;
+${APM} install latex pdf-view language-latex latexer linter-chktex script markdown-preview-enhanced;
 # fsharp
 ${APM} install language-fsharp;
 # java
-${APM} install autocomplete-java linter-javac;
+#${APM} install autocomplete-java linter-javac;
 # scala
 ${APM} install language-scala linter-scalac;
 # elm
