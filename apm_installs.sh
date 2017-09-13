@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # something
-apm install minimap file-icons highlight-column highlight-line color-picker pigments linter linter-ui-default intentions busy-signal markdown-preview-enhanced;
+apm install minimap file-icons highlight-column highlight-line color-picker pigments;
 # git
 apm install git-history git-control merge-conflicts git-plus git-log tualo-git-context;
 # haskell
@@ -24,11 +24,14 @@ apm install language-elm linter-elm-make;
 apm install language-erlang;
 # asm
 apm install language-x86-64-assembly;
-# lisp and scheme
-apm install language-lisp language-scheme;
+# lisp
+apm install language-lisp;
 # graphviz
 apm install language-dot;
 # llvm
 apm install language-llvm;
 # elixir
 apm install language-elixir autocomplete-elixir linter-elixirc;
+
+# IDE
+apm install atom-ide-ui ide-csharp ide-java;
