@@ -1,37 +1,39 @@
 #!/bin/sh
 
+APM=apm-beta
+
 # something
-apm install minimap file-icons highlight-column highlight-line color-picker pigments;
+${APM} install markdown-preview-enhanced minimap file-icons highlight-column highlight-line color-picker pigments;
 # git
-apm install git-history git-control merge-conflicts git-plus git-log tualo-git-context;
+${APM} install git-history git-control merge-conflicts git-plus git-log tualo-git-context;
 # haskell
-apm install ide-haskell haskell-ghc-mod ide-haskell-cabal autocomplete-haskell language-haskell haskell-pointfree linter-hlint;
+${APM} install ide-haskell haskell-ghc-mod ide-haskell-cabal autocomplete-haskell language-haskell haskell-pointfree linter-hlint;
 # clang
-apm install linter-clang autocomplete-clang;
+${APM} install linter-clang autocomplete-clang;
 # rust
-apm install language-rust linter-rust racer;
+${APM} install language-rust linter-rust racer;
 # latex
-apm install latex pdf-view language-latex latexer linter-chktex script;
+${APM} install latex pdf-view language-latex latexer linter-chktex script;
 # fsharp
-apm install language-fsharp;
+${APM} install language-fsharp;
 # java
-apm install autocomplete-java linter-javac;
+${APM} install autocomplete-java linter-javac;
 # scala
-apm install language-scala linter-scalac;
+${APM} install language-scala linter-scalac;
 # elm
-apm install language-elm linter-elm-make;
+${APM} install language-elm linter-elm-make;
 # erlang
-apm install language-erlang;
+${APM} install language-erlang;
 # asm
-apm install language-x86-64-assembly;
+${APM} install language-x86-64-assembly;
 # lisp
-apm install language-lisp;
+${APM} install language-lisp;
 # graphviz
-apm install language-dot;
+${APM} install language-dot;
 # llvm
-apm install language-llvm;
+${APM} install language-llvm;
 # elixir
-apm install language-elixir autocomplete-elixir linter-elixirc;
+${APM} install language-elixir autocomplete-elixir linter-elixirc;
 
 # IDE
-apm install atom-ide-ui ide-csharp ide-java;
+${APM} install atom-ide-ui ide-csharp ide-java;
