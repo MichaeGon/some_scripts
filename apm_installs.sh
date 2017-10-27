@@ -34,6 +34,7 @@ ${APM} install language-dot;
 ${APM} install language-llvm;
 # elixir
 ${APM} install language-elixir autocomplete-elixir linter-elixirc;
-
+# cmake
+${APM} install language-cmake
 # IDE
 ${APM} install atom-ide-ui ide-csharp ide-java;
