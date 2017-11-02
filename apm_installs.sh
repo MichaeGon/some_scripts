@@ -36,5 +36,7 @@ ${APM} install language-llvm;
 ${APM} install language-elixir autocomplete-elixir linter-elixirc;
 # cmake
 ${APM} install language-cmake
+# bazel
+${APM} install lauguage-bazel
 # IDE
 ${APM} install atom-ide-ui ide-csharp ide-java;
