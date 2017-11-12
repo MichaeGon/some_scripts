@@ -11,7 +11,7 @@ ${APM} install ide-haskell haskell-ghc-mod ide-haskell-cabal autocomplete-haskel
 # clang
 ${APM} install linter-clang autocomplete-clang;
 # rust
-${APM} install language-rust linter-rust racer;
+${APM} install language-rust linter-rust ide-rust; #racer;
 # latex
 ${APM} install latex pdf-view language-latex latexer linter-chktex script markdown-preview-enhanced;
 # fsharp
