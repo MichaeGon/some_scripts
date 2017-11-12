@@ -16,12 +16,18 @@ main = shelly shellyMain
         shellyMain = mapM_ install extensions
         
 install :: T.Text -> Sh ()
-install x = run_ "code" ["--install-extension" x]
+install x = run_ "code" ["--install-extension", x]
 
 extensions :: [T.Text]
 extensions =
     [ -- haskell
       "justusadam.language-haskell"
-    , "hoovercj.vscode-ghc-mod"
-    , "hoovercj.haskell-linter"
+    , "alanz.vscode-hie-server"
+     -- markdown
+    , "hnw.vscode-auto-open-markdown-preview"
+     -- elixir
+    , "mjmcloug.vscode-elixir"
+     -- git
+    , "vector-of-bool.gitflow"
+    , "donjayamanne.githistory"
     ]
