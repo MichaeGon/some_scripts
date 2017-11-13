@@ -37,4 +37,6 @@ extensions =
      -- git
     , "vector-of-bool.gitflow"
     , "donjayamanne.githistory"
+     -- bazel
+    , "DevonDCarew.bazel-code"
     ]
