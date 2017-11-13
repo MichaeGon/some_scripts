@@ -31,7 +31,7 @@ extensions =
     , "mjmcloug.vscode-elixir"
      -- c/c++
     , "ms-vscode.cpptools" -- default
-    --, "llvm-vs-code-extensions.vscode-clangd" -- for clang
+    --, "llvm-vs-code-extensions.vscode-clangd" -- for clangd
      -- python
     , "ms-python.python"
      -- racket
