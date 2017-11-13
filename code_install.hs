@@ -30,8 +30,8 @@ extensions =
      -- elixir
     , "mjmcloug.vscode-elixir"
      -- c/c++
-    --, "ms-vscode.cpptools" -- default
-    , "llvm-vs-code-extensions.vscode-clangd" -- for clang
+    , "ms-vscode.cpptools" -- default
+    --, "llvm-vs-code-extensions.vscode-clangd" -- for clang
      -- python
     , "ms-python.python"
      -- git
