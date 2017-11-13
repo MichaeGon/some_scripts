@@ -34,6 +34,8 @@ extensions =
     --, "llvm-vs-code-extensions.vscode-clangd" -- for clang
      -- python
     , "ms-python.python"
+     -- racket
+    --, "Dmytro.racket"
      -- git
     , "vector-of-bool.gitflow"
     , "donjayamanne.githistory"
