@@ -23,10 +23,17 @@ extensions =
     [ -- haskell
       "justusadam.language-haskell"
     , "alanz.vscode-hie-server"
+     -- rust
+    , "rust-lang.rust"
      -- markdown
     , "hnw.vscode-auto-open-markdown-preview"
      -- elixir
     , "mjmcloug.vscode-elixir"
+     -- c/c++
+    --, "ms-vscode.cpptools" -- default
+    , "llvm-vs-code-extensions.vscode-clangd" -- for clang
+     -- python
+    , "ms-python.python"
      -- git
     , "vector-of-bool.gitflow"
     , "donjayamanne.githistory"
