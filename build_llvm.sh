@@ -1,5 +1,5 @@
 #!/bin/sh
-page_prefix=http://llvm.org/releases/
+page_prefix=http://releases.llvm.org/
 tx=.tar.xz
 s=.src
 stx=${s}${tx}
