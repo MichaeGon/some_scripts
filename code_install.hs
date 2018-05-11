@@ -41,4 +41,6 @@ extensions =
     , "donjayamanne.githistory"
      -- bazel
     , "DevonDCarew.bazel-code"
+	-- pdf viewer
+	, "tomoki1207.vscode-pdf"
     ]
