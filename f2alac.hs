@@ -58,15 +58,15 @@ conv :: FilePath -> FilePath -> Sh ()
 conv x y = echo (toTextIgnore x `T.append` " -> " `T.append` toTextIgnore y) >> run_ "xld" [toTextIgnore x, "-o", toTextIgnore y, "-f", "alac"]
 
 recConv :: FilePath -> FilePath -> Sh ()
-recConv x y = ls x >>= lsdebug >>= mapM_ mf
+recConv x y = ls x >>= {-lsdebug >>=-} mapM_ mf
     where
-        lsdebug xs = echo ("ls " `T.append` toTextIgnore x `T.append` " is: ") >> mapM_ (echo . toTextIgnore) xs >> return xs
+        --lsdebug xs = echo ("ls " `T.append` toTextIgnore x `T.append` " is: ") >> mapM_ (echo . toTextIgnore) xs >> return xs
         mf c = test_d c >>= mff
             where
                 mff dc  
-                    | dc = mkdir_p yc >> recConv c yc
+                    | dc = echo ("Directory: " `T.append` toTextIgnore c) >> mkdir_p yc >> recConv c yc
                     | ".flac" `T.isSuffixOf` toTextIgnore c = conv c yc
-                    | otherwise = return ()
+                    | otherwise = echo ("Copying " `T.append` toTextIgnore c) >> cp c y
                     where
                         cn = getName c
                         yc
