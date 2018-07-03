@@ -41,4 +41,6 @@ extensions =
     , "donjayamanne.githistory"
      -- bazel
     , "DevonDCarew.bazel-code"
+    -- fsharp
+    , "ionide.ionide-fsharp"
     ]
