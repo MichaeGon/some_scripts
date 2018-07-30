@@ -44,5 +44,7 @@ extensions =
     -- fsharp
     , "ionide.ionide-fsharp"
 	-- pdf viewer
-	, "tomoki1207.vscode-pdf"
+    , "tomoki1207.vscode-pdf"
+    -- bracket
+    , "CoenraadS.bracket-pair-colorizer"
     ]
