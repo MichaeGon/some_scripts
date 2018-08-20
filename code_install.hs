@@ -47,4 +47,6 @@ extensions =
     , "tomoki1207.pdf"
     -- bracket
     , "CoenraadS.bracket-pair-colorizer"
+    -- erlang
+    , "pgourlain.erlang"
     ]
