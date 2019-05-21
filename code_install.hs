@@ -49,4 +49,6 @@ extensions =
     , "CoenraadS.bracket-pair-colorizer"
     -- erlang
     , "pgourlain.erlang"
+    -- ssh fs
+    , "kelvin.vscode-sshfs"
     ]
